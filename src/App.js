@@ -270,7 +270,7 @@ function WeatherScreen() {
     setLoading(false);
   };
 
-  useEffect(() => { fetchWeather("Southampton"); }, []);
+  useEffect(() => { fetchWeather("Southampton"); }, []); // eslint-disable-line react-hooks/exhaustive-deps
   const verdict = weather ? getVerdict(weather.score) : null;
 
   return (
@@ -507,8 +507,7 @@ export default function LaundryApp() {
     return () => subscription.unsubscribe();
   }, []);
 
-  useEffect(() => { if (user) fetchLogs(); }, [user, fetchLogs]); // eslint-disable-line react-hooks/exhaustive-deps
-
+  useEffect(() => { if (user) fetchLogs(); }, [user]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchLogs = async () => {
     setLoadingLogs(true);
