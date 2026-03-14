@@ -507,7 +507,8 @@ export default function LaundryApp() {
     return () => subscription.unsubscribe();
   }, []);
 
-  useEffect(() => { if (user) fetchLogs(); }, [user]);
+  useEffect(() => { if (user) fetchLogs(); }, [user, fetchLogs]); // eslint-disable-line react-hooks/exhaustive-deps
+
 
   const fetchLogs = async () => {
     setLoadingLogs(true);
